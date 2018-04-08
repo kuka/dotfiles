@@ -37,6 +37,7 @@ Plug 'jparise/vim-graphql'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'yggdroot/indentline'
+Plug 'elixir-editors/vim-elixir'
 
 " Status
 Plug 'kien/ctrlp.vim'
@@ -60,8 +61,8 @@ endif
 
 let base16colorspace=256
 
-" colo gruvbox
-colo gotham
+colo gruvbox
+" colo gotham
 set background=dark
 
 set encoding=utf8
