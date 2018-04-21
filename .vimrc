@@ -44,11 +44,12 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 
 " color schemes: 256-friendly {{{
-Plug 'w0ng/vim-hybrid'
 Plug 'whatyouhide/vim-gotham'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'reedes/vim-colors-pencil'
+Plug 'chriskempson/base16-vim'
+Plug 'ayu-theme/ayu-vim'
 " }}}
 
 " Add plugins to &runtimepath
@@ -61,8 +62,15 @@ endif
 
 let base16colorspace=256
 
-colo gruvbox
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"
+
+" colo base16-apathy
+" colo gruvbox
 " colo gotham
+" colo ayu
+colo oceanicnext
 set background=dark
 
 set encoding=utf8
@@ -72,6 +80,7 @@ set lazyredraw
 set ttyfast
 
 let g:airline_theme='oceanicnext'
+" let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 
 let g:scratch_height=0.15
@@ -127,16 +136,6 @@ set showmatch       " show matching brackets.
 set matchtime=2         " the length of time to show matching paren.
 
 set iskeyword+=_,$,@,%,#,-  " don't linebreak when encounter these characters.
-
-set tabstop=2       " The number of spaces count for a TAB.
-set softtabstop=2   " The number of spaces inserted when typing TAB. If not expandtab, type TAB twice, will get one TAB.
-set shiftwidth=2    " The number of spaces when auto-indent.
-set expandtab       " Use the spaces only.
-
-set smarttab            " Insert appropriate spaces in front of line according to shiftwidth, tabstop, softtabstop.
-set autoindent
-set smartindent
-"set cindent            " cindent will disable smartindent, but only for C-like programming.
 
 " yank to clipboard
 if has("clipboard")
@@ -197,8 +196,6 @@ if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
 endif
 
-au BufReadPost *.nunjucks set syntax=html
-
 " Custom keys
 noremap <Leader>a :Autoformat<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
@@ -228,7 +225,7 @@ imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 " indent
 imap <C-Return> <CR><CR><C-o>k<Tab>
 
-" indent line
+" " indent line
 let g:indentLine_color_gui = '#1A495B'
 
 vnoremap . :norm.<CR>
@@ -243,3 +240,12 @@ noremap XX "+x<CR>
 " smooth scroll
 let g:comfortable_motion_friction = 100.0
 let g:comfortable_motion_air_drag = 3.0
+
+set autoindent
+set smartindent
+"set cindent            " cindent will disable smartindent, but only for C-like programming.
+
+set tabstop=2       " The number of spaces count for a TAB.
+set shiftwidth=2    " The number of spaces when auto-indent.
+set expandtab       " Use the spaces only.
+set softtabstop=2   " The number of spaces inserted when typing TAB. If not expandtab, type TAB twice, will get one TAB.
