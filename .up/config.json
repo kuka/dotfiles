@@ -1,0 +1,15 @@
+{
+ "team": "xevol",
+ "teams": {
+  "kuka@xevol.com": {
+   "team": "kuka@xevol.com",
+   "email": "kuka@xevol.com",
+   "token": "PAIjIztEvSjcVt6GIRoh8NIXiwjQs_0W14mkdrRykvg=.eyJ0ZWFtIjoia3VrYUB4ZXZvbC5jb20iLCJlbWFpbCI6Imt1a2FAeGV2b2wuY29tIiwiY3JlYXRlZF9hdCI6IjIwMTgtMDItMjFUMDc6MzU6MTEuOTExMTk2MTM1WiJ9"
+  },
+  "xevol": {
+   "team": "xevol",
+   "email": "kuka@xevol.com",
+   "token": "2N2TMFxD5DGCakRs8P2YxGFCixYLRA4wZweIEiLbmy8=.eyJ0ZWFtIjoieGV2b2wiLCJlbWFpbCI6Imt1a2FAeGV2b2wuY29tIiwiY3JlYXRlZF9hdCI6IjIwMTgtMDItMjFUMDc6MzU6MzkuMTQzNzE3NjQzWiJ9"
+  }
+ }
+}
