@@ -50,6 +50,7 @@ Plug 'morhetz/gruvbox'
 Plug 'reedes/vim-colors-pencil'
 Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'rainglow/vim'
 " }}}
 
 " Add plugins to &runtimepath
@@ -70,7 +71,8 @@ let base16colorspace=256
 " colo gruvbox
 " colo gotham
 " colo ayu
-colo oceanicnext
+" colo oceanicnext
+colo arstotzka-contrast
 set background=dark
 
 set encoding=utf8
@@ -79,7 +81,7 @@ set t_Co=256
 set lazyredraw
 set ttyfast
 
-let g:airline_theme='oceanicnext'
+let g:airline_theme='pencil'
 " let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 
