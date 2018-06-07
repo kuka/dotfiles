@@ -1,17 +1,19 @@
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-Plug 'junegunn/vim-easy-align'
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+" Editing
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug '~/my-prototype-plugin'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'yuttie/comfortable-motion.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jparise/vim-graphql'
+Plug 'yggdroot/indentline'
+Plug 'Chiel92/vim-autoformat'
+
+" Syntax
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-liquid'
+Plug 'w0rp/ale'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -19,39 +21,27 @@ Plug 'junegunn/gv.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
-" Syntax
-Plug 'tpope/vim-commentary'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'Chiel92/vim-autoformat'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'digitaltoad/vim-pug'
+" HTML
 Plug 'othree/html5.vim'
+
+" CSS
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'wavded/vim-stylus'
-Plug 'kchmck/vim-coffee-script'
+
+" JS
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+
 Plug 'posva/vim-vue'
-Plug 'jparise/vim-graphql'
-Plug 'mattn/emmet-vim'
-Plug 'w0rp/ale'
-Plug 'yggdroot/indentline'
-Plug 'elixir-editors/vim-elixir'
 
 " Status
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 
-" color schemes: 256-friendly {{{
-Plug 'whatyouhide/vim-gotham'
-Plug 'mhartington/oceanic-next'
-Plug 'morhetz/gruvbox'
+" color schemes
+Plug 'trusktr/seti.vim'
 Plug 'reedes/vim-colors-pencil'
-Plug 'chriskempson/base16-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'rainglow/vim'
-" }}}
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -63,16 +53,7 @@ endif
 
 let base16colorspace=256
 
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"
-
-" colo base16-apathy
-" colo gruvbox
-" colo gotham
-" colo ayu
-" colo oceanicnext
-colo arstotzka-contrast
+colo seti
 set background=dark
 
 set encoding=utf8
@@ -160,7 +141,7 @@ endif
 
 " Loading the plugin and indentation rules according to the dectected filetype.
 if has("autocmd")
-  filetype plugin indent on
+  filetype indent on
   autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   autocmd StdinReadPre * let s:std_in=1
@@ -185,8 +166,6 @@ if has("autocmd")
   set listchars=eol:¬,tab:>·,trail:·,extends:>,precedes:<
 endif
 
-let g:syntastic_javascript_checkers = ['eslint']
-
 let g:gitgutter_diff_args = '-w'
 
 " Override eslint with local version where necessary.
@@ -194,9 +173,22 @@ let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
   let local_eslint = getcwd() . "/" . local_eslint
 endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+
+" JS
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
+" ALE
+let g:ale_linters = { 'javascript': ['flow', 'eslint'] }
+
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
 
 " Custom keys
 noremap <Leader>a :Autoformat<CR>
@@ -218,17 +210,10 @@ let g:NERDTreeShowHidden=1
 " NERDTREE
 let NERDTreeWinSize=32
 
-" Emmet
-let g:user_emmet_leader_key='<tab>'
-let g:user_emmet_expandabbr_key='<tab>'
-let g:user_emmet_mode='a'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
-" indent
-imap <C-Return> <CR><CR><C-o>k<Tab>
-
 " " indent line
 let g:indentLine_color_gui = '#1A495B'
+
+let g:html_indent_inctags = "html,body,head,tbody"
 
 vnoremap . :norm.<CR>
 vnoremap \y y:call system("pbcopy", getreg("\""))<CR>
@@ -247,7 +232,12 @@ set autoindent
 set smartindent
 "set cindent            " cindent will disable smartindent, but only for C-like programming.
 
-set tabstop=2       " The number of spaces count for a TAB.
-set shiftwidth=2    " The number of spaces when auto-indent.
-set expandtab       " Use the spaces only.
-set softtabstop=2   " The number of spaces inserted when typing TAB. If not expandtab, type TAB twice, will get one TAB.
+set tabstop=2
+set softtabstop=2
+set shiftwidth=0
+set smarttab
+set expandtab
+
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
