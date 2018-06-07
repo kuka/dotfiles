@@ -37,3 +37,21 @@ week.
 What would be a good time for a call? My skype is kuka_io.
 
 Looking forward to your reply. Thanks!
+
+---
+
+Hey Phillip,
+
+I’m a full-stack developer with a focus on web apps built with node, React and the whole JS eco-system. I’m fully capable of designing and building out the needed functionality from the ground up from
+abstract ideas on paper to mockups to concise maintainable code for front-end and its APIs. From 0 to 100.
+
+Most recently I’ve used server-side rendered React/Redux/GraphQL deployed to serverless AWS Lambda.
+
+I’ve been working in agile/startup environment as a remote consultant for several companies and agencies for the last few years.
+
+For the last few months I’ve been thinking about sharing more of my knowledge and it feels like stars have aligned. I’m not sure what responsibilites this role brings but I’m sure I’ve got the needed
+expertise technology-wise.
+
+Looking forward to hearing from you to discuss the needs and how I can bring my skills to the table.
+
+Thanks!
