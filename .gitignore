@@ -9,7 +9,7 @@
 .vim/plugged
 
 !.newsboat
-/.newsboat/cache.db
+.newsboat/cache.db
 
 !.vimrc
 !.bashrc
