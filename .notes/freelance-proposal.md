@@ -55,3 +55,24 @@ expertise technology-wise.
 Looking forward to hearing from you to discuss the needs and how I can bring my skills to the table.
 
 Thanks!
+
+---
+
+Hello! My name is Kuanysh. Given your position description  on a full-stack web-developer position I’m confident to say that I’ll be able to fulfill the requirements needed to move the needle forward, be it a front-end, a back-end or a general architecture that’s going to make sense in terms of ROI in both time and costs.
+
+I’m a full-stack developer which means I can design and develop both user-facing interfaces as well as APIs. I’d used the buzzwords
+tech like Serverless, GraphQL. Basically saying I’m all you need to build your app and website in a fast and efficient manner, both as a sole provider and a
+team member.
+
+I’m available for contract work and ready to get started next week. I’m between GMT+4/+6 so close enough to be in sync with European team and any async team from Northern America. My rate is $90/h.
+
+As with any other project, I think the easiest start would be to have a talk so that I could understand your needs and lay out the plan of our collaboration.
+
+My website is https://kuanysh.com and my github is https://github.com/kuka.
+
+What would be a good time for a call? My contacts are:
+- tel: +39 392 2528103, +7 775 602 64 67
+- skype: kuka_io
+- telegram: https://t.me/kukasix
+
+Feel free to ask away. Looking forward to your reply. Thanks!

@@ -8,7 +8,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jparise/vim-graphql'
 Plug 'yggdroot/indentline'
-Plug 'Chiel92/vim-autoformat'
 
 " Syntax
 Plug 'tpope/vim-commentary'
@@ -156,8 +155,6 @@ if has("autocmd")
 
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-  " au BufWrite * :Autoformat
-
   " Remove trailing whitespace
   autocmd BufWritePre * %s/\s\+$//e
 
@@ -190,8 +187,6 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
 
-" Custom keys
-noremap <Leader>a :Autoformat<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " disable arrow keys
@@ -228,16 +223,6 @@ noremap XX "+x<CR>
 let g:comfortable_motion_friction = 100.0
 let g:comfortable_motion_air_drag = 3.0
 
-set autoindent
-set smartindent
-"set cindent            " cindent will disable smartindent, but only for C-like programming.
-
 set tabstop=2
-set softtabstop=2
-set shiftwidth=0
-set smarttab
+set shiftwidth=2
 set expandtab
-
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
